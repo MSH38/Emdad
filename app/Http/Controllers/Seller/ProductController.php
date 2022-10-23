@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Seller;
-
 use App\CPU\BackEndHelper;
 use App\CPU\Convert;
 use App\CPU\Helpers;
@@ -38,7 +37,6 @@ class ProductController extends Controller
     {
 
         $products = Product::where('added_by','admin')->latest()->paginate(12);
-
         $cat = Category::where(['parent_id' => 0])->get();
         $br = Brand::orderBY('name', 'ASC')->get();
         return view('seller-views.product.add-new', compact('cat', 'br','products'));
